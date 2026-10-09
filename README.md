@@ -13,6 +13,10 @@
 [![Paper](https://img.shields.io/badge/CoRL-2026-8a2be2)](https://safedrive-vla.github.io/SafeDriveVLA/)
 [![Code](https://img.shields.io/badge/GitHub-SafeDriveVLA-black)](https://github.com/Daniel-xsy/safedrive-vla)
 
+<p align="center">
+  <img src="assets/teaser.jpg" alt="RoboWorld 2026 Track 3: SafeDrive-VLA Poster" width="460" />
+</p>
+
 **🏆 Awards: Official Certificates for Top 5 Teams & NeurIPS 2026 RoboPAD Workshop Oral Presentations**
 
 </div>
