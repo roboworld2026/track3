@@ -21,24 +21,22 @@
 
 **SafeDrive-VLA** invites participants to develop **vision-language-action models (VLAs)** for **safe navigation guided by natural-language instructions**. Given onboard visual observations and an instruction, models generate driving trajectories or control actions that account for surrounding traffic conditions.
 
-Models should **follow safe instructions**, including turns, lane changes, and target-speed requests. When an instruction **conflicts with the traffic scene**, models must respond appropriately by slowing down, waiting, or selecting a safe alternative. End-to-end policies, VLA models, world-model approaches, explicit conflict reasoning, and reinforcement learning are all welcome.
+Models should **follow safe instructions**, including turns, lane changes, and target-speed requests. When an instruction **conflicts with the traffic scene**, models must respond appropriately by slowing down, waiting, or selecting a safe alternative.
 
 ### 🎯 Task Definition
 
 | Component | Description |
 |:--|:--|
-| **Input** | Onboard visual observations and a stream of natural-language navigation instructions. Language is the only navigation signal; route-planner commands and target waypoints are withheld from the agent. |
+| **Input** | Onboard visual observations and a stream of natural-language navigation instructions. Language is the only navigation signal; route-planner commands and target waypoints are **inaccessible** from the agent. |
 | **Output** | Driving trajectories or control actions. |
 | **Setting** | Closed-loop, safety-aware driving in the CARLA simulator. |
-| **Objective** | Execute safe instructions faithfully, and respond safely when an instruction conflicts with the traffic scene. |
-| **Evaluation** | The organizers run each submitted agent in closed loop on withheld CARLA-F and B2D-C routes. |
+| **Objective** | Execute safe instructions, and respond safely when an instruction conflicts with the traffic scene. |
 
 ## 📅 Competition Details
 
 - **Event:** [RoboWorld Challenge 2026, Track 3](https://roboworld2026.github.io/track3), affiliated with the [RoboPAD Workshop at NeurIPS 2026](https://robotpad2026.github.io/).
 - **Registration:** register through the [Google Form](https://roboworld2026.github.io/#registration) (registration opens October 08, 2026) to be eligible for the leaderboard, certificates, and awards.
 - **Submission platform:** [CodaBench — SafeDrive-VLA](https://www.codabench.org/competitions/18333/).
-- **Submission limits:** every submission is evaluated in closed loop by the organizers, so at most one submission per day and ten in total are allowed.
 
 ### 🗓️ Timeline
 
@@ -81,10 +79,8 @@ Evaluation consists of **40 closed-loop simulation routes** across two complemen
 | **B2D-C** | 20 | Conflicting instructions issued when hazards occur |
 | **Total** | **40** | |
 
-- **CARLA-F (safe instruction following):** chained language instructions for turn left, turn right, go straight, lane change left, lane change right, lane follow, and target speed, on routes rebuilt from the CARLA road topology. Background traffic is disabled and traffic lights are forced green, so every instruction is safe and expected to be executed.
+- **CARLA-F (safe instruction following):** sequential language instructions for turn left, turn right, go straight, lane change left, lane change right, lane follow, and target speed. Background traffic is disabled and traffic lights are forced green, so every instruction is safe and expected to be executed.
 - **B2D-C (instruction-scene conflict):** unsafe natural-language instructions are issued at the safety-critical events of Bench2Drive scenarios, such as pedestrian crossings, cut-ins from parked lanes, and blocked intersections. Danger is contextual: the same instruction could be safe in a different scene, so the agent must reason about the instruction relative to its current observation.
-
-The competition routes are generated with the same protocols as the public benchmarks, withheld from participants, and used only for official evaluation. The full public CARLA-F (210 routes) and B2D-C (150 routes) benchmarks from the SafeDriveVLA paper can be used for local development.
 
 ### Training Data
 
@@ -110,7 +106,7 @@ git clone https://github.com/Daniel-xsy/safedrive-vla.git
 cd safedrive-vla
 ```
 
-The [SafeDriveVLA repository](https://github.com/Daniel-xsy/safedrive-vla) provides world-model pre-training, VLA training, and closed-loop evaluation code for CARLA-F and B2D-C, together with the benchmark route files. Follow its [installation guide](https://github.com/Daniel-xsy/safedrive-vla/blob/main/docs/install.md) for the environment setup.
+The [SafeDriveVLA repository](https://github.com/Daniel-xsy/safedrive-vla) provides world-model pre-training, VLA training, and closed-loop evaluation code for CARLA-F and B2D-C. Follow its [installation guide](https://github.com/Daniel-xsy/safedrive-vla/blob/main/docs/install.md) for the environment setup.
 
 ### 3. Prepare a Submission
 
@@ -158,7 +154,6 @@ Avg. is weighted by the number of instructions per meta-command and excludes spe
 | SimLingo-Safe | 72.8 | 38.0 | 60 | 61 | 11 |
 | **SafeDriveVLA** | **85.9** | **67.3** | **38** | **9** | **4** |
 
-All baselines receive natural-language instructions as the only navigation signal. SimLingo denotes its default commentary mode, while SimLingo-IF and SimLingo-Safe prepend the `<INSTRUCTION_FOLLOWING>` and `<SAFETY>` tags, respectively, to the prompt of the same checkpoint. The two test sets measure different aspects of performance: (1) instruction following in safe scenarios and (2) awareness of unsafe instructions. SafeDriveVLA is trained on the full PDM-Lite data; see the [SafeDriveVLA repository](https://github.com/Daniel-xsy/safedrive-vla#main-results) for command-based baselines and Bench2Drive results.
 
 ## 📏 Evaluation
 
