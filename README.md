@@ -138,14 +138,27 @@ The SafeDriveVLA policy builds on InternVL3-1B, emits discrete action tokens fro
 
 Reference results reported in the [SafeDriveVLA paper](https://safedrive-vla.github.io/SafeDriveVLA/) on the full public benchmark routes are shown below. These are baseline results, not competition submissions.
 
-| Baseline | CARLA-F NCR (%) ↑ | CARLA-F SE ↓ | B2D-C DS ↑ | B2D-C SR (%) ↑ | Collision ↓ | Traffic Violation ↓ | Out of Route ↓ |
-|:--|--:|--:|--:|--:|--:|--:|--:|
-| SimLingo | 52.4 | 1.44 | 72.8 | 36.7 | 66 | 60 | 18 |
-| SimLingo-IF | 55.6 | **1.31** | 56.3 | 12.7 | 166 | 57 | 32 |
-| SimLingo-Safe | 55.6 | 1.67 | 72.8 | 38.0 | 60 | 61 | 11 |
-| **SafeDriveVLA** | **83.0** | 4.28 | **85.9** | **67.3** | **38** | **9** | **4** |
+**CARLA-F** (Navigation Compliance Rate per meta-command, %)
 
-SimLingo denotes its default commentary mode, while SimLingo-IF and SimLingo-Safe prepend the `<INSTRUCTION_FOLLOWING>` and `<SAFETY>` tags, respectively, to the prompt of the same checkpoint. CARLA-F NCR is averaged over meta-commands, weighted by the number of instructions per meta-command, and excludes speed. The two test sets measure different aspects of performance: (1) instruction following in safe scenarios and (2) awareness of unsafe instructions. SafeDriveVLA is trained on the full PDM-Lite data; see the [SafeDriveVLA repository](https://github.com/Daniel-xsy/safedrive-vla#main-results) for per-meta-command and Bench2Drive results.
+| Baseline | Speed Error ↓ | Turn left | Turn right | Go straight | Left lane | Right lane | Lane follow | Avg. ↑ |
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|
+| SimLingo | 1.44 | 83.6 | 80.4 | 45.9 | 0.0 | 0.0 | 63.8 | 52.4 |
+| SimLingo-IF | **1.31** | 89.1 | 82.3 | 49.4 | 0.0 | 0.0 | 69.0 | 55.6 |
+| SimLingo-Safe | 1.67 | **92.7** | 84.3 | 50.6 | 0.0 | 0.0 | 62.1 | 55.6 |
+| **SafeDriveVLA** | 4.28 | **92.7** | **90.2** | **84.7** | **63.6** | **72.4** | **81.0** | **83.0** |
+
+Avg. is weighted by the number of instructions per meta-command and excludes speed. Speed Error is in m/s.
+
+**B2D-C**
+
+| Baseline | DS ↑ | SR (%) ↑ | Collision ↓ | Traffic Violation ↓ | Out of Route ↓ |
+|:--|--:|--:|--:|--:|--:|
+| SimLingo | 72.8 | 36.7 | 66 | 60 | 18 |
+| SimLingo-IF | 56.3 | 12.7 | 166 | 57 | 32 |
+| SimLingo-Safe | 72.8 | 38.0 | 60 | 61 | 11 |
+| **SafeDriveVLA** | **85.9** | **67.3** | **38** | **9** | **4** |
+
+All baselines receive natural-language instructions as the only navigation signal. SimLingo denotes its default commentary mode, while SimLingo-IF and SimLingo-Safe prepend the `<INSTRUCTION_FOLLOWING>` and `<SAFETY>` tags, respectively, to the prompt of the same checkpoint. The two test sets measure different aspects of performance: (1) instruction following in safe scenarios and (2) awareness of unsafe instructions. SafeDriveVLA is trained on the full PDM-Lite data; see the [SafeDriveVLA repository](https://github.com/Daniel-xsy/safedrive-vla#main-results) for command-based baselines and Bench2Drive results.
 
 ## 📏 Evaluation
 
