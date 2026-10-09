@@ -12,6 +12,7 @@
 [![CodaBench](https://img.shields.io/badge/CodaBench-Submit-purple)](https://www.codabench.org/competitions/18333/)
 [![Paper](https://img.shields.io/badge/CoRL-2026-8a2be2)](https://safedrive-vla.github.io/SafeDriveVLA/)
 [![Code](https://img.shields.io/badge/GitHub-SafeDriveVLA-black)](https://github.com/Daniel-xsy/safedrive-vla)
+[![WeChat](https://img.shields.io/badge/WeChat-Track_3_Group-07C160?logo=wechat&logoColor=white)](https://github.com/roboworld2026/roboworld2026.github.io/blob/main/wechat_track3.JPG)
 
 <p align="center">
   <img src="assets/teaser.jpg" alt="RoboWorld 2026 Track 3: SafeDrive-VLA Poster" width="460" />
@@ -191,7 +192,7 @@ Natural-language instructions only. Route-planner commands, target waypoints, ro
 
 ## 🔗 Contact and Resources
 
-For technical support, use [GitHub Issues](https://github.com/roboworld2026/track3/issues). For challenge questions, contact [roboworld2026@gmail.com](mailto:roboworld2026@gmail.com). A Track 3 WeChat group is listed on the [challenge website](https://roboworld2026.github.io/).
+For technical support, use [GitHub Issues](https://github.com/roboworld2026/track3/issues). For challenge questions, contact [roboworld2026@gmail.com](mailto:roboworld2026@gmail.com). To join the Track 3 WeChat group, scan the [WeChat QR code](https://github.com/roboworld2026/roboworld2026.github.io/blob/main/wechat_track3.JPG).
 
 | Resource | Link |
 |:--|:--|
