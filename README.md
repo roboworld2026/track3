@@ -190,14 +190,6 @@ No. End-to-end policies, VLA models, world-model approaches, explicit conflict r
 
 Natural-language instructions only. Route-planner commands, target waypoints, route polylines, scenario definitions, and privileged simulator state are withheld from the agent.
 
-**3. Can I use the public CARLA-F and B2D-C routes?**
-
-Yes, the full public benchmarks can be used for local development. The 40 competition routes are generated with the same protocols but are withheld and used only for official evaluation.
-
-**4. Why are submissions limited to one per day?**
-
-Every submission is evaluated in closed loop in CARLA by the organizers, so at most one submission per day and ten in total are allowed.
-
 ## 🔗 Contact and Resources
 
 For technical support, use [GitHub Issues](https://github.com/roboworld2026/track3/issues). For challenge questions, contact [roboworld2026@gmail.com](mailto:roboworld2026@gmail.com). A Track 3 WeChat group is listed on the [challenge website](https://roboworld2026.github.io/).
