@@ -93,7 +93,7 @@ Training uses the CARLA driving dataset that [SimLingo](https://github.com/RenzK
 - **Scale:** 3,308,315 samples recorded at 4 fps, distributed as about 1.2 TB of compressed archives. Samples are not from unique routes, because the available CARLA route files are limited.
 - **Routes and scenarios:** routes come from Towns 1–10 and from the official CARLA Leaderboard 2.0 routes in Towns 12 and 13. All are short routes with one scenario (62.1%) or three scenarios (37.9%), driven under random weather. They cover 38 complex scenarios, including urban traffic, participants violating traffic rules, and high-speed highway driving.
 - **Language annotations:** commentary that explains driving decisions; instruction-following ("Dreamer") data with multiple alternative instruction–action pairs per sample, each labeled with whether the instructed action is safe to execute and, if not, why; and VQA based on DriveLM.
-- **Use in the reference baseline:** SafeDriveVLA uses the driving frames and measurements, the instruction-following data, and the scenario buckets for balanced sampling, and trains on a 20% subsample; it does not use the commentary or VQA annotations.
+- **Use in the reference baseline:** SafeDriveVLA uses the driving frames and measurements, the instruction-following data, and the scenario buckets for balanced sampling; it does not use the commentary or VQA annotations.
 
 ## 🚀 Getting Started
 
@@ -136,14 +136,16 @@ SafeDriveVLA decouples conflict reasoning from action generation:
 
 The SafeDriveVLA policy builds on InternVL3-1B, emits discrete action tokens from a 2,048-entry motion-primitive codebook, and uses a lightweight path head for lateral control. Implementations are provided in the [SafeDriveVLA repository](https://github.com/Daniel-xsy/safedrive-vla).
 
-Reference results on the full public benchmark routes are shown below. These are baseline results, not competition submissions.
+Reference results reported in the [SafeDriveVLA paper](https://safedrive-vla.github.io/SafeDriveVLA/) on the full public benchmark routes are shown below. These are baseline results, not competition submissions.
 
 | Baseline | CARLA-F NCR (%) ↑ | CARLA-F SE ↓ | B2D-C DS ↑ | B2D-C SR (%) ↑ | Collision ↓ | Traffic Violation ↓ | Out of Route ↓ |
 |:--|--:|--:|--:|--:|--:|--:|--:|
 | SimLingo | 52.4 | 1.44 | 72.8 | 36.7 | 66 | 60 | 18 |
-| SafeDriveVLA | 82.7 | 4.27 | 67.3 | 35.8 | 45 | 9 | 1 |
+| SimLingo-IF | 55.6 | **1.31** | 56.3 | 12.7 | 166 | 57 | 32 |
+| SimLingo-Safe | 55.6 | 1.67 | 72.8 | 38.0 | 60 | 61 | 11 |
+| **SafeDriveVLA** | **83.0** | 4.28 | **85.9** | **67.3** | **38** | **9** | **4** |
 
-The two test sets measure different aspects of performance: (1) instruction following in safe scenarios and (2) awareness of unsafe instructions. The SafeDriveVLA reference model is trained on 20% of the PDM-Lite data; its lower B2D-C DS mainly comes from refusing unsafe instructions, which moves the ego vehicle off the reference route.
+SimLingo denotes its default commentary mode, while SimLingo-IF and SimLingo-Safe prepend the `<INSTRUCTION_FOLLOWING>` and `<SAFETY>` tags, respectively, to the prompt of the same checkpoint. CARLA-F NCR is averaged over meta-commands, weighted by the number of instructions per meta-command, and excludes speed. The two test sets measure different aspects of performance: (1) instruction following in safe scenarios and (2) awareness of unsafe instructions. SafeDriveVLA is trained on the full PDM-Lite data; see the [SafeDriveVLA repository](https://github.com/Daniel-xsy/safedrive-vla#main-results) for per-meta-command and Bench2Drive results.
 
 ## 📏 Evaluation
 
