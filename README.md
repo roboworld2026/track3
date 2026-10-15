@@ -10,7 +10,8 @@
 [![Track 3](https://img.shields.io/badge/Track_3-SafeDrive--VLA-green)](https://roboworld2026.github.io/track3)
 [![CodaBench](https://img.shields.io/badge/CodaBench-Submit-purple)](https://www.codabench.org/competitions/18333/)
 [![RoboPAD](https://img.shields.io/badge/Affiliated_with-RoboPAD_2026-red)](https://robotpad2026.github.io/)
-[![Paper](https://img.shields.io/badge/CoRL-2026-8a2be2)](https://safedrive-vla.github.io/SafeDriveVLA/)
+[![Paper](https://img.shields.io/badge/arXiv-2610.20609-b31b1b)](https://arxiv.org/abs/2610.20609)
+[![CoRL](https://img.shields.io/badge/CoRL-2026-8a2be2)](https://safedrive-vla.github.io/SafeDriveVLA/)
 [![Code](https://img.shields.io/badge/GitHub-SafeDriveVLA-black)](https://github.com/ASGuard-UCI/safedrive-vla)
 
 <p align="center">
@@ -334,7 +335,7 @@ No, only the result archive. The top teams must provide their code and checkpoin
 | RoboWorld 2026 | [Challenge website](https://roboworld2026.github.io/) |
 | Track 3 SafeDrive-VLA | [Track website](https://roboworld2026.github.io/track3) |
 | CodaBench Platform | [Submissions and leaderboard](https://www.codabench.org/competitions/18333/) |
-| SafeDriveVLA | [Project page](https://safedrive-vla.github.io/SafeDriveVLA/) & [GitHub](https://github.com/ASGuard-UCI/safedrive-vla) |
+| SafeDriveVLA | [Paper](https://arxiv.org/abs/2610.20609), [Project page](https://safedrive-vla.github.io/SafeDriveVLA/) & [GitHub](https://github.com/ASGuard-UCI/safedrive-vla) |
 | Training Data | [RenzKa/simlingo on Hugging Face](https://huggingface.co/datasets/RenzKa/simlingo) |
 | Simulation | [CARLA](https://carla.org/) & [Bench2Drive](https://github.com/Thinklab-SJTU/Bench2Drive) |
 | RoboPAD Workshop | [RoboPAD @ NeurIPS 2026](https://robotpad2026.github.io/) |
