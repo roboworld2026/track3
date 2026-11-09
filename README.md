@@ -331,6 +331,10 @@ Natural-language instructions only; see the [navigation signal rule](#-navigatio
 
 No, only the result archive. The top teams must provide their code and checkpoints, and their results are reproduced before the awards.
 
+**4. Can I use LiDAR, radar or other sensors?**
+
+No. The track is camera-only: you may use up to 6 onboard cameras, but LiDAR and radar are not allowed, either during evaluation or in official submissions.
+
 ## 🔗 Resources and Contact
 
 | Resource | Link |
